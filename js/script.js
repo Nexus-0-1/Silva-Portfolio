@@ -119,13 +119,13 @@ function sendWhatsAppMessage(event) {
 
     // Get form values
     const fullName = document.getElementById('fullName').value;
-    const email = document.getElementById('email').value;
+    // const email = document.getElementById('email').value;
     const mobileNumber = document.getElementById('mobileNumber').value;
-    const subject = document.getElementById('subject').value;
+    // const subject = document.getElementById('subject').value;
     const message = document.getElementById('message').value;
 
     // Format the message for WhatsApp
-    const whatsappMessage = `Hello!%0A%0AYou have a new contact form submission:%0A%0AName: ${encodeURIComponent(fullName)}%0AEmail: ${encodeURIComponent(email)}%0AMobile Number: ${encodeURIComponent(mobileNumber)}%0ASubject: ${encodeURIComponent(subject)}%0AMessage: ${encodeURIComponent(message)}%0A`;
+    const whatsappMessage = `Hello!%0A%0AYou have a new contact form submission:%0A%0AName: ${encodeURIComponent(fullName)}%0AMobile Number: ${encodeURIComponent(mobileNumber)}%0AMessage: ${encodeURIComponent(message)}%0A`;
 
     // Your WhatsApp number
     const whatsappNumber = "+2348139302498";
