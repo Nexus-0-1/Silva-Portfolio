@@ -261,18 +261,43 @@
 
 
 
-    <form action="#">
+    <!-- Contact Section Design -->
+<!-- <section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me!</span></h2>
+
+    <form id="contactForm">
         <div class="input-box">
             <input type="text" id="fullName" placeholder="Full Name" required>
             <input type="email" id="email" placeholder="Email Address" required>
         </div>
         <div class="input-box">
-            <input type="number" id="mobile" placeholder="Mobile Number" required>
+            <input type="number" id="mobileNumber" placeholder="Mobile Number" required>
             <input type="text" id="subject" placeholder="Email Subject" required>
         </div>
         <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-        <input type="submit" value="Send Message" class="btn">
-    </form>    
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section> -->
+
+
+<!-- Contact Section Design -->
+<section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me!</span></h2>
+
+    <form id="contactForm" onsubmit="sendWhatsAppMessage(event)">
+        <div class="input-box">
+            <input type="text" id="fullName" placeholder="Full Name" required>
+            <input type="email" id="email" placeholder="Email Address" required>
+        </div>
+        <div class="input-box">
+            <input type="number" id="mobileNumber" placeholder="Mobile Number" required>
+            <input type="text" id="subject" placeholder="Email Subject" required>
+        </div>
+        <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+</section>
+
 
 
 

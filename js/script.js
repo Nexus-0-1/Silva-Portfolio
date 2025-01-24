@@ -113,30 +113,26 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // });
 
 
-document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Prevent form submission and page reload
+// /*========== contact form ==========*/
+function sendWhatsAppMessage(event) {
+    event.preventDefault(); // Prevent the form from refreshing the page
 
-    // Replace this with your WhatsApp number
-    const phone = "2348139302498"; 
+    // Get form values
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const mobileNumber = document.getElementById('mobileNumber').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
 
-    // Get the form inputs
-    const fullName = document.querySelector("#fullName").value.trim();
-    const email = document.querySelector("#email").value.trim();
-    const mobile = document.querySelector("#mobile").value.trim();
-    const subject = document.querySelector("#subject").value.trim();
-    const message = document.querySelector("#message").value.trim();
+    // Format the message for WhatsApp
+    const whatsappMessage = `Hello!%0A%0AYou have a new contact form submission:%0A%0AName: ${encodeURIComponent(fullName)}%0AEmail: ${encodeURIComponent(email)}%0AMobile Number: ${encodeURIComponent(mobileNumber)}%0ASubject: ${encodeURIComponent(subject)}%0AMessage: ${encodeURIComponent(message)}%0A`;
 
-    // Construct the WhatsApp message
-    const whatsappMessage = `Hello, you have a new message from your website:\n\n` +
-        `Name: ${fullName}\n` +
-        `Email: ${email}\n` +
-        `Mobile: ${mobile}\n` +
-        `Subject: ${subject}\n` +
-        `Message: ${message}`;
+    // Your WhatsApp number
+    const whatsappNumber = "+2348139302498";
 
-    // Generate the WhatsApp URL with your number
-    const whatsappURL = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(whatsappMessage)}`;
+    // Create the WhatsApp URL
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-    // Open WhatsApp in a new tab
-    window.open(whatsappURL, "_blank");
-});
+    // Open the WhatsApp URL
+    window.open(whatsappURL, '_blank');
+}
