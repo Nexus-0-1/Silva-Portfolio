@@ -113,10 +113,9 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // });
 
 
-
 // /*========== contact form ==========*/
 document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); // Prevent the form from refreshing the page
 
     // Get form values
     const fullName = document.getElementById('fullName').value;
@@ -128,6 +127,6 @@ document.getElementById('contactForm').addEventListener('submit', function (e) {
     // Format the message for WhatsApp
     const whatsappMessage = `Name: ${fullName}%0AEmail: ${email}%0AMobile: ${mobileNumber}%0ASubject: ${subject}%0AMessage: ${message}`;
 
-    // Open WhatsApp with the pre-filled message
-    window.open(`https://wa.me/+2348139302498?text=${whatsappMessage}`, '_blank');
+    // Redirect to WhatsApp with the pre-filled message
+    window.location.href = `https://wa.me/+2348139302498?text=${whatsappMessage}`;
 });
