@@ -113,20 +113,30 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // });
 
 
-// /*========== contact form ==========*/
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent the form from refreshing the page
+document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Prevent form submission and page reload
 
-    // Get form values
-    const fullName = document.getElementById('fullName').value;
-    const email = document.getElementById('email').value;
-    const mobileNumber = document.getElementById('mobileNumber').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    // Replace this with your WhatsApp number
+    const phone = "2348139302498"; 
 
-    // Format the message for WhatsApp
-    const whatsappMessage = `Name: ${fullName}%0AEmail: ${email}%0AMobile: ${mobileNumber}%0ASubject: ${subject}%0AMessage: ${message}`;
+    // Get the form inputs
+    const fullName = document.querySelector("#fullName").value.trim();
+    const email = document.querySelector("#email").value.trim();
+    const mobile = document.querySelector("#mobile").value.trim();
+    const subject = document.querySelector("#subject").value.trim();
+    const message = document.querySelector("#message").value.trim();
 
-    // Redirect to WhatsApp with the pre-filled message
-    window.location.href = `https://wa.me/+2348139302498?text=${whatsappMessage}`;
+    // Construct the WhatsApp message
+    const whatsappMessage = `Hello, you have a new message from your website:\n\n` +
+        `Name: ${fullName}\n` +
+        `Email: ${email}\n` +
+        `Mobile: ${mobile}\n` +
+        `Subject: ${subject}\n` +
+        `Message: ${message}`;
+
+    // Generate the WhatsApp URL with your number
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(whatsappURL, "_blank");
 });
