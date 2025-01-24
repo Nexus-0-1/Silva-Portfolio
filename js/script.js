@@ -79,3 +79,35 @@ ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
 ScrollReveal().reveal('.home-img img, .services-container, .portfolio-box, .testimonial-wrapper, .contact form', { origin: 'bottom' });
 ScrollReveal().reveal('.home-content h1, .about-img img', { origin: 'left' });
 ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { origin: 'right' });
+
+
+
+
+/*========== contact form ==========*/
+document.querySelector("#sendWhatsApp").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const phone = "YOUR_PHONE_NUMBER"; // Replace with your WhatsApp number, including country code
+  const fullName = document.querySelector("#fullName").value;
+  const email = document.querySelector("#email").value;
+  const mobile = document.querySelector("#phone").value;
+  const subject = document.querySelector("#subject").value;
+  const message = document.querySelector("#message").value;
+
+  if (!fullName || !email || !mobile || !subject || !message) {
+    alert("Please fill in all fields before sending the message.");
+    return;
+  }
+
+  const whatsappMessage = `
+    *Contact Form Submission*
+    Name: ${fullName}
+    Email: ${email}
+    Phone: ${mobile}
+    Subject: ${subject}
+    Message: ${message}
+  `.trim();
+
+  const whatsappURL = `https://api.whatsapp.com/send?phone=${phone}&text=${encodeURIComponent(whatsappMessage)}`;
+  window.open(whatsappURL, "_blank");
+});
