@@ -87,7 +87,7 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 document.querySelector("#sendWhatsApp").addEventListener("click", function (e) {
   e.preventDefault();
 
-  const phone = "YOUR_PHONE_NUMBER"; // Replace with your WhatsApp number, including country code
+  const phone = "2348139302498";
   const fullName = document.querySelector("#fullName").value;
   const email = document.querySelector("#email").value;
   const mobile = document.querySelector("#phone").value;
