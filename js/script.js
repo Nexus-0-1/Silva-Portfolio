@@ -113,20 +113,21 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 // });
 
 
-//JavaScript to handle form submission
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault();
 
-        var name = document.getElementById("name").value;
-        var email = document.getElementById("email").value;
-        var phone = document.getElementById("phone").value;
-        var subject = document.getElementById("subject").value;
-        var message = document.getElementById("message").value;
+// /*========== contact form ==========*/
+document.getElementById('contactForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Prevent form submission
 
-        // Construct the WhatsApp URL
-        var whatsappMessage = encodeURIComponent(`*Contact Form Submission*\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nSubject: ${subject}\nMessage: ${message}`);
-        var whatsappURL = `https://wa.me/+2348139302498?text=${whatsappMessage}`;
+    // Get form values
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const mobileNumber = document.getElementById('mobileNumber').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
 
-        // Redirect to WhatsApp with the pre-filled message
-        window.open(whatsappURL, '_blank');
-    });
+    // Format the message for WhatsApp
+    const whatsappMessage = `Name: ${fullName}%0AEmail: ${email}%0AMobile: ${mobileNumber}%0ASubject: ${subject}%0AMessage: ${message}`;
+
+    // Open WhatsApp with the pre-filled message
+    window.open(`https://wa.me/+2348139302498?text=${whatsappMessage}`, '_blank');
+});
